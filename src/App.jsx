@@ -1,35 +1,51 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import {BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom';
 import './App.css'
+import Inicio from './components/inicio/Inicio';
+import Servicios from './components/servicios/Servicios';
+import Ingresar from './components/ingresar/Ingresar';
+import Registrar from './components/registrar/Registrar';
+import Perfil from './components/perfil/Perfil';
+import Mascota from './components/mascota/Mascota';
 
 function App() {
-  const [count, setCount] = useState(0)
 
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    return (
+        <Router>
+            <div className="App">
+                <ul className="App-header">
+                    <li>
+                        <Link to="/">Inicio</Link>
+                    </li>
+                    <li>
+                        <Link to="/ingresar">Ingresar</Link>
+                    </li>
+                    <li>
+                        <Link to="/registro">Registro</Link>
+                    </li>
+                    <li>
+                        <Link to="/servicios">Servicios</Link>
+                    </li>
+                    <li>
+                        <Link to="/reservar">Reservar</Link>
+                    </li>
+                </ul>
+                <Routes>
+                    <Route exact path='/'
+                        element={<Inicio/>}/>
+                    <Route exact path='/servicios'
+                        element={<Servicios/>}/>
+                    <Route exact path='/ingresar'
+                        element={<Ingresar/>}/>
+                    <Route exact path='/registro'
+                        element={<Registrar/>}/>
+                    <Route exact path='/perfil'
+                        element={<Perfil/>}/>
+                    <Route exact path='/agregar-mascota'
+                        element={<Mascota/>}/>
+                </Routes>
+            </div>
+        </Router>
+    )
 }
 
 export default App
