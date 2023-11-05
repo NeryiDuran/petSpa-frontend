@@ -4,6 +4,7 @@ import {obtenerMascotasPorCliente} from '../../services/mascota';
 import {obtenerServicios} from '../../services/servicios';
 import {crearReserva} from '../../services/reserva';
 import {useNavigate} from 'react-router-dom';
+import { obtenerClienteId } from '../../services/cliente';
 
 function Reserva() {
     const navigate = useNavigate();
@@ -34,7 +35,7 @@ function Reserva() {
     }
 
     useEffect(() => {
-        obtenerMascotasPorCliente(1).then(response => {
+        obtenerMascotasPorCliente(obtenerClienteId()).then(response => {
             setMascotas(response.data);
         }).catch(e => {
             console.log(e);
@@ -48,6 +49,13 @@ function Reserva() {
             console.log(e);
         });
     }, []);
+
+    useEffect(() => {
+        if (obtenerClienteId() === null) {
+            navigate('/');
+        }
+
+    }, [navigate]);
 
     return (
         <>

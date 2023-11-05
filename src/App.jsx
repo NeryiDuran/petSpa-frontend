@@ -1,4 +1,4 @@
-import {BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom';
+import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import './App.css'
 import Inicio from './components/inicio/Inicio';
 import Servicios from './components/servicios/Servicios';
@@ -7,29 +7,14 @@ import Registrar from './components/registrar/Registrar';
 import Perfil from './components/perfil/Perfil';
 import Mascota from './components/mascota/Mascota';
 import Reserva from './components/reseva/Reserva';
+import Menu from './components/menu/Menu';
 
 function App() {
 
-    return (
-        <Router>
-            <div className="App">
-                <ul className="App-header">
-                    <li>
-                        <Link to="/">Inicio</Link>
-                    </li>
-                    <li>
-                        <Link to="/ingresar">Ingresar</Link>
-                    </li>
-                    <li>
-                        <Link to="/registro">Registro</Link>
-                    </li>
-                    <li>
-                        <Link to="/servicios">Servicios</Link>
-                    </li>
-                    <li>
-                        <Link to="/reservar">Reservar</Link>
-                    </li>
-                </ul>
+    return (<Router>
+        <div className="app">
+            <Menu/>
+            <div className='app-body'>
                 <Routes>
                     <Route exact path='/'
                         element={<Inicio/>}/>
@@ -47,8 +32,8 @@ function App() {
                         element={<Reserva/>}/>
                 </Routes>
             </div>
-        </Router>
-    )
+        </div>
+    </Router>)
 }
 
-export default App
+export default App;
