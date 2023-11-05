@@ -1,9 +1,10 @@
 import {useEffect, useState} from 'react'
 import './Perfil.css'
-import {Link, useNavigate} from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 import {actualizarCliente, obtenerCliente} from '../../services/cliente';
 import {obtenerTiposDocumentos} from '../../services/tipo_documentos';
 import TablaMascota from '../tabla-mascota/TablaMascota';
+import TablaReserva from '../tabla-reserva/TablaReserva';
 
 function Perfil() {
     const navigate = useNavigate();
@@ -135,30 +136,7 @@ function Perfil() {
                 </form>
             </div>
             <TablaMascota cliente={1}/>
-            <fieldset>
-                <legend>Reservas</legend>
-                <div>
-                    <Link to="/reservar">Realizar reserva</Link>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Servicio</th>
-                                <th>Fecha y hora</th>
-                                <th>Acción</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Baño</td>
-                                <td>10-12-2023 8:30 AM</td>
-                                <th>
-                                    <Link to="/agregar-mascota">Eliminar reserva</Link>
-                                </th>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </fieldset>
+            <TablaReserva mascotas={`14, 1`}/>
         </>
     )
 }
