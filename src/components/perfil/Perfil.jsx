@@ -1,21 +1,60 @@
-import {useState} from 'react'
+import {useEffect, useState} from 'react'
 import './Perfil.css'
-import {Link} from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
+import {actualizarCliente, obtenerCliente} from '../../services/cliente';
 
 function Perfil() {
+    const navigate = useNavigate();
+
+    const [id, setId] = useState(0);
     const [nombres, setNombres] = useState('');
     const [apellidos, setApellidos] = useState('');
-    const [tipoDocumento] = useState('');
-    const [documento] = useState('');
+    const [tipoDocumento, setTipoDocumento] = useState('');
+    const [documento, setDocumento] = useState('');
     const [telefono, setTelefono] = useState('');
     const [direccion, setDireccion] = useState('');
-    const [correo] = useState('');
+    const [correo, setCorreo] = useState('');
     const [contrasena, setContrasena] = useState('');
 
     function actualizar(event) {
         event.preventDefault();
-        // alert(`correo ${correo} contraseña ${contrasena}`);
+
+        const data = {
+            nombre: nombres,
+            apellido: apellidos,
+            documento: documento,
+            telefono: telefono,
+            direccion: direccion,
+            correo_electronico: correo,
+            contrasena: contrasena,
+            tipo_documento_id: tipoDocumento
+        };
+
+        actualizarCliente(id, data).then(response => {
+            if (response.data == 'Actualizado') {
+                alert('La información se ha actualizado correctamente.');
+                navigate('/perfil');
+            }
+        }).catch(e => {
+            console.log(e);
+        });
     }
+
+    useEffect(() => {
+        obtenerCliente(1).then(response => {
+            setId(response.data.id);
+            setNombres(response.data.nombre);
+            setApellidos(response.data.apellido);
+            setDocumento(response.data.documento);
+            setTelefono(response.data.telefono);
+            setDireccion(response.data.direccion);
+            setCorreo(response.data.correo_electronico);
+            setTipoDocumento(response.data.tipo_documento_id);
+            setContrasena(response.data.contrasena);
+        }).catch(e => {
+            console.log(e);
+        });
+    }, []);
 
     return (
         <>
@@ -66,13 +105,6 @@ function Perfil() {
                     <input id='correo' type='email' placeholder='Correo electronico'
                         disabled={true}
                         value={correo}/>
-                    <label htmlFor='contrasena'>Contraseña:</label>
-                    <input id='contrasena' type='password' placeholder='Contraseña' autoComplete="on"
-                        required={true}
-                        value={contrasena}
-                        onChange={
-                            event => setContrasena(event.target.value)
-                        }/>
                     <input type='submit' value='Actualizar'/>
                 </form>
             </div>
