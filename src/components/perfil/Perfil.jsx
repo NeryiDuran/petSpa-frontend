@@ -5,6 +5,7 @@ import {actualizarCliente, obtenerCliente, obtenerClienteId} from '../../service
 import {obtenerTiposDocumentos} from '../../services/tipo_documentos';
 import TablaMascota from '../tabla-mascota/TablaMascota';
 import TablaReserva from '../tabla-reserva/TablaReserva';
+import {obtenerMascotasPorCliente} from '../../services/mascota';
 
 function Perfil() {
     const navigate = useNavigate();
@@ -19,6 +20,7 @@ function Perfil() {
     const [correo, setCorreo] = useState('');
     const [contrasena, setContrasena] = useState('');
     const [tipoDocumentos, setTipoDocumentos] = useState([]);
+    const [mascotasId, setMascotasId] = useState([]);
 
     function actualizar(event) {
         event.preventDefault();
@@ -73,6 +75,16 @@ function Perfil() {
             console.log(e);
         });
     }, []);
+
+    useEffect(() => { /* eslint-disable react/prop-types */
+        if (id) {
+            obtenerMascotasPorCliente(id).then(response => {
+                setMascotasId(response.data.map((mascota) => mascota.id));
+            }).catch(e => {
+                console.log(e);
+            });
+        }
+    }, [id]);
 
     return (<>
         <h1>Perfil</h1>
@@ -137,8 +149,13 @@ function Perfil() {
                 <input type='submit' value='Actualizar'/>
             </form>
         </div>
-        <TablaMascota cliente={obtenerClienteId()}/>
-        <TablaReserva mascotas={`14, 1`}/>
-    </>)
+        {
+        id && <TablaMascota cliente={id}/>
+    }
+        {
+        mascotasId.length && <TablaReserva mascotas={
+            mascotasId.join(',')
+        }/>
+    } </>)
 }
 export default Perfil;

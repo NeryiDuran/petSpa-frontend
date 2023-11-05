@@ -38,68 +38,64 @@ function TablaMascota(props) {
                 navigate(0);
             }
         }).catch(e => {
+            alert('La mascota no ha podido ser eliminada. Recuerde que si la mascota tiene reservas asociadas, no podra ser eliminada.');
             console.log(e);
         });
     }
 
-    return (
-        <>
-            <fieldset>
-                <legend>Mascotas</legend>
-                <div>
-                    <Link to="/agregar-mascota">Agregar mascota</Link>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Mascota</th>
-                                <th>Raza</th>
-                                <th>Tipo</th>
-                                <th>Acción</th>
-                            </tr>
-                        </thead>
-                        <tbody>{
-                            mascotas.map((mascota) => {
-                                return (
-                                    <tr key={
-                                        'mascota' + mascota.id
-                                    }>
-                                        <td key={
-                                            'mascota-nombre' + mascota.id
-                                        }>
-                                            {
-                                            mascota.nombre
-                                        }</td>
-                                        <td key={
-                                            'mascota-raza' + mascota.id
-                                        }>
-                                            {
-                                            mascota.raza
-                                        }</td>
-                                        <td key={
-                                            'mascota-tipo' + mascota.id
-                                        }>
-                                            {
-                                            tiposMascota[mascota.tipo_mascota_id]
-                                        }</td>
-                                        <th key={
-                                            'mascota-acciones' + mascota.id
-                                        }>
-                                            <button key={
-                                                    'mascota-acciones-eliminar' + mascota.id
-                                                }
-                                                onClick={
-                                                    () => eliminar(mascota.id)
-                                            }>Eliminar mascota</button>
-                                        </th>
-                                    </tr>
-                                )
-                            })
-                        }</tbody>
-                    </table>
-                </div>
-            </fieldset>
-        </>
-    )
+    return (<>
+        <fieldset>
+            <legend>Mascotas</legend>
+            <div>
+                <Link to="/agregar-mascota">Agregar mascota</Link>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Mascota</th>
+                            <th>Raza</th>
+                            <th>Tipo</th>
+                            <th>Acción</th>
+                        </tr>
+                    </thead>
+                    <tbody> {
+                        mascotas.length ? mascotas.map((mascota) => {
+                            return (<tr key={
+                                'mascota' + mascota.id
+                            }>
+                                <td key={
+                                    'mascota-nombre' + mascota.id
+                                }> {
+                                    mascota.nombre
+                                }</td>
+                                <td key={
+                                    'mascota-raza' + mascota.id
+                                }> {
+                                    mascota.raza
+                                }</td>
+                                <td key={
+                                    'mascota-tipo' + mascota.id
+                                }> {
+                                    tiposMascota[mascota.tipo_mascota_id]
+                                }</td>
+                                <th key={
+                                    'mascota-acciones' + mascota.id
+                                }>
+                                    <button key={
+                                            'mascota-acciones-eliminar' + mascota.id
+                                        }
+                                        onClick={
+                                            () => eliminar(mascota.id)
+                                    }>Eliminar mascota</button>
+                                </th>
+                            </tr>)
+                        }) : (<tr>
+                            <th>Registra una mascota.</th>
+                        </tr>)
+                    }</tbody>
+                </table>
+            </div>
+        </fieldset>
+    </>)
 }
 
 export default TablaMascota;
