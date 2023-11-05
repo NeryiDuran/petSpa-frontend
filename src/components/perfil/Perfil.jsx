@@ -76,25 +76,56 @@ function Perfil() {
                     <input type='submit' value='Actualizar'/>
                 </form>
             </div>
-            <div>
-                <Link to="/agregar-mascota">Agregar mascota</Link>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Mascota</th>
-                            <th>Raza</th>
-                            <th>Tipo</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Mascota 1</td>
-                            <td>Beagle</td>
-                            <th>Perro</th>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+            <fieldset>
+                <legend>Mascotas</legend>
+                <div>
+                    <Link to="/agregar-mascota">Agregar mascota</Link>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Mascota</th>
+                                <th>Raza</th>
+                                <th>Tipo</th>
+                                <th>Acción</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Mascota 1</td>
+                                <td>Beagle</td>
+                                <th>Perro</th>
+                                <th>
+                                    <Link to="/agregar-mascota">Eliminar mascota</Link>
+                                </th>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>Reservas</legend>
+                <div>
+                    <Link to="/reservar">Realizar reserva</Link>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Servicio</th>
+                                <th>Fecha y hora</th>
+                                <th>Acción</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Baño</td>
+                                <td>10-12-2023 8:30 AM</td>
+                                <th>
+                                    <Link to="/agregar-mascota">Eliminar reserva</Link>
+                                </th>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </fieldset>
         </>
     )
 }

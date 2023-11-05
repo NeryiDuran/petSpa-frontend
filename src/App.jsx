@@ -6,6 +6,7 @@ import Ingresar from './components/ingresar/Ingresar';
 import Registrar from './components/registrar/Registrar';
 import Perfil from './components/perfil/Perfil';
 import Mascota from './components/mascota/Mascota';
+import Reserva from './components/reseva/Reserva';
 
 function App() {
 
@@ -42,6 +43,8 @@ function App() {
                         element={<Perfil/>}/>
                     <Route exact path='/agregar-mascota'
                         element={<Mascota/>}/>
+                    <Route exact path='/reservar'
+                        element={<Reserva/>}/>
                 </Routes>
             </div>
         </Router>
