@@ -149,13 +149,10 @@ function Perfil() {
                 <input type='submit' value='Actualizar'/>
             </form>
         </div>
-        {
-        id && <TablaMascota cliente={id}/>
-    }
-        {
-        mascotasId.length && <TablaReserva mascotas={
+        <TablaMascota cliente={id}/>
+        <TablaReserva mascotas={
             mascotasId.join(',')
         }/>
-    } </>)
+    </>)
 }
 export default Perfil;

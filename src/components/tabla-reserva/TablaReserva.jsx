@@ -43,7 +43,7 @@ function TablaReserva(props) {
                             </tr>
                         </thead>
                         <tbody>{
-                            reservas.map((reserva) => {
+                            reservas.length ? reservas.map((reserva) => {
                                 return (
                                     <tr key={
                                         'reserva' + reserva.id
@@ -79,6 +79,9 @@ function TablaReserva(props) {
                                     </tr>
                                 )
                             })
+                            : (<tr>
+                                <th colSpan={4}>Añade una reserva.</th>
+                            </tr>)
                         }</tbody>
                     </table>
                 </div>

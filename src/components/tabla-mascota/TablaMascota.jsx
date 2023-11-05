@@ -89,7 +89,7 @@ function TablaMascota(props) {
                                 </th>
                             </tr>)
                         }) : (<tr>
-                            <th>Registra una mascota.</th>
+                            <th colSpan={4}>Añade una mascota.</th>
                         </tr>)
                     }</tbody>
                 </table>
