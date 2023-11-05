@@ -2,6 +2,8 @@ import {useEffect, useState} from 'react'
 import './Perfil.css'
 import {Link, useNavigate} from 'react-router-dom';
 import {actualizarCliente, obtenerCliente} from '../../services/cliente';
+import {obtenerTiposDocumentos} from '../../services/tipo_documentos';
+import TablaMascota from '../tabla-mascota/TablaMascota';
 
 function Perfil() {
     const navigate = useNavigate();
@@ -15,6 +17,7 @@ function Perfil() {
     const [direccion, setDireccion] = useState('');
     const [correo, setCorreo] = useState('');
     const [contrasena, setContrasena] = useState('');
+    const [tipoDocumentos, setTipoDocumentos] = useState([]);
 
     function actualizar(event) {
         event.preventDefault();
@@ -56,6 +59,14 @@ function Perfil() {
         });
     }, []);
 
+    useEffect(() => {
+        obtenerTiposDocumentos().then(response => {
+            setTipoDocumentos(response.data);
+        }).catch(e => {
+            console.log(e);
+        });
+    }, []);
+
     return (
         <>
             <h1>Perfil</h1>
@@ -78,11 +89,26 @@ function Perfil() {
                     <label htmlFor='tipo-documento'>Tipo de documento:</label>
                     <select id='tipo-documento'
                         disabled={true}
-                        value={tipoDocumento}>
-                        <option value="CC">Cedula</option>
-                        <option value="CE">Cedula Extranjeria</option>
-                        <option value="PS">Pasaporte</option>
-                    </select>
+                        value={tipoDocumento}
+                        onChange={
+                            event => setTipoDocumento(event.target.value)
+                    }>
+                        <option value=''>-- Seleccione --</option>
+                        {
+                        tipoDocumentos.map((documento) => {
+                            return (
+                                <option value={
+                                        documento.id
+                                    }
+                                    key={
+                                        documento.id
+                                }>
+                                    {
+                                    documento.tipo
+                                }</option>
+                            );
+                        })
+                    } </select>
                     <label htmlFor='documento'>Número de documento:</label>
                     <input id='documento' type='number' placeholder='Número de documento'
                         disabled={true}
@@ -108,32 +134,7 @@ function Perfil() {
                     <input type='submit' value='Actualizar'/>
                 </form>
             </div>
-            <fieldset>
-                <legend>Mascotas</legend>
-                <div>
-                    <Link to="/agregar-mascota">Agregar mascota</Link>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Mascota</th>
-                                <th>Raza</th>
-                                <th>Tipo</th>
-                                <th>Acción</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Mascota 1</td>
-                                <td>Beagle</td>
-                                <th>Perro</th>
-                                <th>
-                                    <Link to="/agregar-mascota">Eliminar mascota</Link>
-                                </th>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </fieldset>
+            <TablaMascota cliente={1}/>
             <fieldset>
                 <legend>Reservas</legend>
                 <div>
@@ -161,5 +162,4 @@ function Perfil() {
         </>
     )
 }
-
 export default Perfil;
