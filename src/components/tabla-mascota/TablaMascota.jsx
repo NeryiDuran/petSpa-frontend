@@ -57,7 +57,7 @@ function TablaMascota(props) {
                             <th>Acción</th>
                         </tr>
                     </thead>
-                    <tbody> {
+                    <tbody>{
                         mascotas.length ? mascotas.map((mascota) => {
                             return (<tr key={
                                 'mascota' + mascota.id

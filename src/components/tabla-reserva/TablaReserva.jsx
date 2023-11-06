@@ -9,7 +9,8 @@ function TablaReserva(props) {
     const [reservas, setReservas] = useState([]);
 
     useEffect(() => { /* eslint-disable react/prop-types */
-        obtenerReservaPorMascotas(props.mascotas).then(response => {
+        const mascotas = props.mascotas !== '' ? props.mascotas : '0';
+        obtenerReservaPorMascotas(mascotas).then(response => {
             setReservas(response.data);
         }).catch(e => {
             console.log(e);
@@ -27,67 +28,59 @@ function TablaReserva(props) {
         });
     }
 
-    return (
-        <>
-            <fieldset>
-                <legend>Reservas</legend>
-                <div>
-                    <Link to="/reservar">Realizar reserva</Link>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Servicio</th>
-                                <th>Mascota</th>
-                                <th>Fecha y hora</th>
-                                <th>Acción</th>
-                            </tr>
-                        </thead>
-                        <tbody>{
-                            reservas.length ? reservas.map((reserva) => {
-                                return (
-                                    <tr key={
-                                        'reserva' + reserva.id
-                                    }>
-                                        <td key={
-                                            'reserva-servicio' + reserva.id
-                                        }>
-                                            {
-                                            reserva.servicio
-                                        }</td>
-                                        <td key={
-                                            'reserva-mascota' + reserva.id
-                                        }>
-                                            {
-                                            reserva.mascota
-                                        }</td>
-                                        <td key={
-                                            'reserva-fecha' + reserva.id
-                                        }>
-                                            {
-                                            new Date(reserva.fecha_hora).toLocaleString()
-                                        }</td>
-                                        <th key={
-                                            'reserva-acciones' + reserva.id
-                                        }>
-                                            <button key={
-                                                    'reserva-acciones-eliminar' + reserva.id
-                                                }
-                                                onClick={
-                                                    () => eliminar(reserva.id)
-                                            }>Eliminar reserva</button>
-                                        </th>
-                                    </tr>
-                                )
-                            })
-                            : (<tr>
-                                <th colSpan={4}>Añade una reserva.</th>
+    return (<>
+        <fieldset>
+            <legend>Reservas</legend>
+            <div>
+                <Link to="/reservar">Realizar reserva</Link>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Servicio</th>
+                            <th>Mascota</th>
+                            <th>Fecha y hora</th>
+                            <th>Acción</th>
+                        </tr>
+                    </thead>
+                    <tbody>{
+                        reservas.length ? reservas.map((reserva) => {
+                            return (<tr key={
+                                'reserva' + reserva.id
+                            }>
+                                <td key={
+                                    'reserva-servicio' + reserva.id
+                                }> {
+                                    reserva.servicio
+                                }</td>
+                                <td key={
+                                    'reserva-mascota' + reserva.id
+                                }> {
+                                    reserva.mascota
+                                }</td>
+                                <td key={
+                                    'reserva-fecha' + reserva.id
+                                }> {
+                                    new Date(reserva.fecha_hora).toLocaleString()
+                                }</td>
+                                <th key={
+                                    'reserva-acciones' + reserva.id
+                                }>
+                                    <button key={
+                                            'reserva-acciones-eliminar' + reserva.id
+                                        }
+                                        onClick={
+                                            () => eliminar(reserva.id)
+                                    }>Eliminar reserva</button>
+                                </th>
                             </tr>)
-                        }</tbody>
-                    </table>
-                </div>
-            </fieldset>
-        </>
-    )
+                        }) : (<tr>
+                            <th colSpan={4}>Añade una reserva.</th>
+                        </tr>)
+                    }</tbody>
+                </table>
+            </div>
+        </fieldset>
+    </>)
 }
 
 export default TablaReserva;
