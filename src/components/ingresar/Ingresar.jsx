@@ -2,6 +2,7 @@ import {useEffect, useState} from 'react'
 import './Ingresar.css'
 import {guardarClienteId, ingresar, obtenerClienteId} from '../../services/cliente';
 import {useNavigate} from 'react-router-dom';
+import Layout from './../layout/Layout';
 
 function Ingresar() {
     const navigate = useNavigate();
@@ -34,26 +35,28 @@ function Ingresar() {
     }, [navigate]);
 
     return (<>
-        <h1>Ingresar</h1>
-        <div>
-            <form onSubmit={enviar}>
-                <label htmlFor='correo'>Correo electronico:</label>
-                <input id='correo' type='email' placeholder='Correo electronico'
-                    required={true}
-                    value={correo}
-                    onChange={
-                        event => setCorreo(event.target.value)
-                    }/>
-                <label htmlFor='contrasena'>Contraseña:</label>
-                <input id='contrasena' type='password' placeholder='Contraseña' autoComplete='on'
-                    required={true}
-                    value={contrasena}
-                    onChange={
-                        event => setContrasena(event.target.value)
-                    }/>
-                <input type='submit' value='Ingresar'/>
-            </form>
-        </div>
+        <Layout>
+            <h1>Ingresar</h1>
+            <div>
+                <form onSubmit={enviar}>
+                    <label htmlFor='correo'>Correo electronico:</label>
+                    <input id='correo' type='email' placeholder='Correo electronico'
+                        required={true}
+                        value={correo}
+                        onChange={
+                            event => setCorreo(event.target.value)
+                        }/>
+                    <label htmlFor='contrasena'>Contraseña:</label>
+                    <input id='contrasena' type='password' placeholder='Contraseña' autoComplete='on'
+                        required={true}
+                        value={contrasena}
+                        onChange={
+                            event => setContrasena(event.target.value)
+                        }/>
+                    <input type='submit' value='Ingresar'/>
+                </form>
+            </div>
+        </Layout>
     </>)
 }
 

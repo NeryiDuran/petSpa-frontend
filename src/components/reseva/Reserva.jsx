@@ -4,7 +4,8 @@ import {obtenerMascotasPorCliente} from '../../services/mascota';
 import {obtenerServicios} from '../../services/servicios';
 import {crearReserva} from '../../services/reserva';
 import {useNavigate} from 'react-router-dom';
-import { obtenerClienteId } from '../../services/cliente';
+import {obtenerClienteId} from '../../services/cliente';
+import Layout from './../layout/Layout';
 
 function Reserva() {
     const navigate = useNavigate();
@@ -57,8 +58,8 @@ function Reserva() {
 
     }, [navigate]);
 
-    return (
-        <>
+    return (<>
+        <Layout>
             <h1>Reservar</h1>
             <div>
                 <form onSubmit={reservar}>
@@ -72,17 +73,14 @@ function Reserva() {
                         <option value='' key='no-servicio'>-- Seleccione --</option>
                         {
                         servicios.map((servicio) => {
-                            return (
-                                <option value={
-                                        servicio.id
-                                    }
-                                    key={
-                                        'servicio-' + servicio.id
-                                }>
-                                    {
-                                    servicio.nombre
-                                }</option>
-                            );
+                            return (<option value={
+                                    servicio.id
+                                }
+                                key={
+                                    'servicio-' + servicio.id
+                            }> {
+                                servicio.nombre
+                            }</option>);
                         })
                     } </select>
                     <label htmlFor='mascota'>Mascota:</label>
@@ -95,17 +93,14 @@ function Reserva() {
                         <option value='' key='no-mascota'>-- Seleccione --</option>
                         {
                         mascotas.map((mascota) => {
-                            return (
-                                <option value={
-                                        mascota.id
-                                    }
-                                    key={
-                                        'mascota-' + mascota.id
-                                }>
-                                    {
-                                    mascota.nombre
-                                }</option>
-                            );
+                            return (<option value={
+                                    mascota.id
+                                }
+                                key={
+                                    'mascota-' + mascota.id
+                            }> {
+                                mascota.nombre
+                            }</option>);
                         })
                     } </select>
                     <label htmlFor='fecha'>Fecha y hora:</label>
@@ -119,8 +114,8 @@ function Reserva() {
                     <input type='submit' value='Reservar'/>
                 </form>
             </div>
-        </>
-    )
+        </Layout>
+    </>)
 }
 
 export default Reserva;

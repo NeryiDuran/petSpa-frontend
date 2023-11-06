@@ -3,6 +3,7 @@ import './Registrar.css'
 import {obtenerTiposDocumentos} from '../../services/tipo_documentos';
 import {crearCliente} from '../../services/cliente';
 import {useNavigate} from 'react-router-dom';
+import Layout from './../layout/Layout';
 
 function Registrar() {
     const navigate = useNavigate();
@@ -48,8 +49,8 @@ function Registrar() {
         });
     }, []);
 
-    return (
-        <>
+    return (<>
+        <Layout>
             <h1>Registro</h1>
             <div>
                 <form onSubmit={enviar}>
@@ -77,17 +78,14 @@ function Registrar() {
                         <option value=''>-- Seleccione --</option>
                         {
                         tipoDocumentos.map((documento) => {
-                            return (
-                                <option value={
-                                        documento.id
-                                    }
-                                    key={
-                                        documento.id
-                                }>
-                                    {
-                                    documento.tipo
-                                }</option>
-                            );
+                            return (<option value={
+                                    documento.id
+                                }
+                                key={
+                                    documento.id
+                            }> {
+                                documento.tipo
+                            }</option>);
                         })
                     } </select>
                     <label htmlFor='documento'>Número de documento:</label>
@@ -128,8 +126,8 @@ function Registrar() {
                     <input type='submit' value='Registrar'/>
                 </form>
             </div>
-        </>
-    )
+        </Layout>
+    </>)
 }
 
 export default Registrar;
