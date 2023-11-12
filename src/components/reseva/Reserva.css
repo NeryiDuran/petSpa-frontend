@@ -1,0 +1,11 @@
+.reserva{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    list-style: none;
+    outline: none;
+    float: none;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+

@@ -1,0 +1,55 @@
+.tituloreserva{
+    text-align: center;
+    font-family: cursive;
+    font-size: 40px;
+    font-weight: bold;
+    color: #bbdf78;
+    text-shadow: 7px 4px 5px #597e14;
+}
+
+.tituloservicio{
+    text-align: center;
+    font-family: cursive;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.plan1{
+    color: #f0b09d;
+}
+.plan2{
+    color: #f19ed6;
+}
+.plan3{
+    color: #72b3e0;
+}
+
+.textoservicio{
+    text-align: justify;
+    font-family: cursive;
+    font-size: 15px;
+    font-weight: normal;
+}
+
+.servicios{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    list-style: none;
+    outline: none;
+    float: none;
+    margin-left: 20%;
+    margin-right: 20%;
+    
+}
+
+.imagenservicio{
+     height: 350px;
+     width: 400px;
+}
+
+.cajaservicio{
+    margin: 10px 10px;
+    width:  500px;
+    height: 200px;
+}

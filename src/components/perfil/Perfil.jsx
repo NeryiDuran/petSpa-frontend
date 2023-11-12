@@ -89,25 +89,26 @@ function Perfil() {
 
     return (<>
         <Layout>
-            <h1>Perfil</h1>
             <div>
+            <h1 className='tituloperfil'>Perfil</h1>
+            <div className='perfil'>
                 <form onSubmit={actualizar}>
-                    <label htmlFor='nombres'>Nombres:</label>
-                    <input id='nombres' type='text' placeholder='Nombres'
+                    <label className='datosPerfil' htmlFor='nombres'>Nombres:</label>
+                    <input className='cajaPerfil colorcaja1' id='nombres' type='text' placeholder='Nombres'
                         required={true}
                         value={nombres}
                         onChange={
                             event => setNombres(event.target.value)
                         }/>
-                    <label htmlFor='apellidos'>Apellidos:</label>
-                    <input id='apellidos' type='text' placeholder='Apellidos'
+                    <label className='datosPerfil' htmlFor='apellidos'>Apellidos:</label>
+                    <input className='cajaPerfil colorcaja2' id='apellidos' type='text' placeholder='Apellidos'
                         required={true}
                         value={apellidos}
                         onChange={
                             event => setApellidos(event.target.value)
                         }/>
-                    <label htmlFor='tipo-documento'>Tipo de documento:</label>
-                    <select id='tipo-documento'
+                    <label className='datosPerfil' htmlFor='tipo-documento'>Tipo de documento:</label>
+                    <select className='cajaPerfil' id='tipo-documento'
                         disabled={true}
                         value={tipoDocumento}
                         onChange={
@@ -126,30 +127,31 @@ function Perfil() {
                             }</option>);
                         })
                     } </select>
-                    <label htmlFor='documento'>Número de documento:</label>
-                    <input id='documento' type='number' placeholder='Número de documento'
+                    <label className='datosPerfil' htmlFor='documento'>Número de documento:</label>
+                    <input className='cajaPerfil' id='documento' type='number' placeholder='Número de documento'
                         disabled={true}
                         value={documento}/>
-                    <label htmlFor='telefono'>Telefono:</label>
-                    <input id='telefono' type='number' placeholder='Telefono'
+                    <label className='datosPerfil' htmlFor='telefono'>Telefono:</label>
+                    <input className='cajaPerfil colorcaja3' id='telefono' type='number' placeholder='Telefono'
                         required={true}
                         value={telefono}
                         onChange={
                             event => setTelefono(event.target.value)
                         }/>
 
-                    <label htmlFor='direccion'>Dirección:</label>
-                    <input id='direccion' type='text' placeholder='Dirección'
+                    <label className='datosPerfil' htmlFor='direccion'>Dirección:</label>
+                    <input className='cajaPerfil colorcaja4' id='direccion' type='text' placeholder='Dirección'
                         value={direccion}
                         onChange={
                             event => setDireccion(event.target.value)
                         }/>
-                    <label htmlFor='correo'>Correo electronico:</label>
-                    <input id='correo' type='email' placeholder='Correo electronico'
+                    <label className='datosPerfil' htmlFor='correo'>Correo electronico:</label>
+                    <input className='cajaPerfil' id='correo' type='email' placeholder='Correo electronico'
                         disabled={true}
                         value={correo}/>
-                    <input type='submit' value='Actualizar'/>
+                    <input className='botonactualizar' type='submit' value='Actualizar'/>
                 </form>
+            </div>
             </div>
             <TablaMascota cliente={id}/>
             <TablaReserva mascotas={

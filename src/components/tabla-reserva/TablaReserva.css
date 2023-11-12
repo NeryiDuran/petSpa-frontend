@@ -1,0 +1,17 @@
+.reservasmas{
+    font-family: cursive;
+    font-size: 18px;
+    color: #BB9149;
+    text-align: left;
+}
+
+.tablareservas {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    list-style: none;
+    outline: none;
+    float: none;
+    margin-left: 20%;
+    margin-right: 20%;
+}

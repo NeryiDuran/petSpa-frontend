@@ -1,0 +1,42 @@
+.datosPerfil{
+    font-family: cursive;
+    font-size: 20px;
+}
+
+.cajaPerfil{
+    font-family: cursive;
+    font-size: 15px;  
+    border: 1px solid black; 
+    border-radius: 8px;
+    margin: 10px;
+    
+}
+.perfil{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    list-style: none;
+    outline: none;
+    float: none;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+.botonactualizar{
+    background-color: #FACEEB;
+    border: 2px solid black;
+    border-radius: 8px;
+    cursor: pointer;
+    padding: 10px 20px 10px 20px;
+    margin: 10px 50%;
+}
+.botonactualizar:hover{
+    background-color: #f393d3;
+}
+.tituloperfil{
+    text-align: center;
+    font-family: cursive;
+    font-size: 40px;
+    font-weight: bold;
+    color: #bb7676;
+    text-shadow: 7px 4px 5px #d6b0b0;
+}

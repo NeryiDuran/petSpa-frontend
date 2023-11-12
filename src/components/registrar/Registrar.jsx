@@ -51,25 +51,25 @@ function Registrar() {
 
     return (<>
         <Layout>
-            <h1>Registro</h1>
-            <div>
-                <form onSubmit={enviar}>
-                    <label htmlFor='nombres'>Nombres:</label>
-                    <input id='nombres' type='text' placeholder='Nombres'
+            <h1 className='registro'>Registro</h1>
+            <div className='formularioIngresar'>
+                <form className='formulario' onSubmit={enviar}>
+                    <label className='tituloFormulario' htmlFor='nombres'>Nombres:</label>
+                    <input className='cajaFormulario colorcaja1' id='nombres' type='text' placeholder='Nombres'
                         required={true}
                         value={nombres}
                         onChange={
                             event => setNombres(event.target.value)
                         }/>
-                    <label htmlFor='apellidos'>Apellidos:</label>
-                    <input id='apellidos' type='text' placeholder='Apellidos'
+                    <label className='tituloFormulario' htmlFor='apellidos'>Apellidos:</label>
+                    <input className='cajaFormulario colorcaja2' id='apellidos' type='text' placeholder='Apellidos'
                         required={true}
                         value={apellidos}
                         onChange={
                             event => setApellidos(event.target.value)
                         }/>
-                    <label htmlFor='tipo-documento'>Tipo de documento:</label>
-                    <select id='tipo-documento'
+                    <label className='tituloFormulario' htmlFor='tipo-documento'>Tipo de documento:</label>
+                    <select className='cajaFormulario colorcaja3' id='tipo-documento'
                         required={true}
                         value={tipoDocumento}
                         onChange={
@@ -88,42 +88,43 @@ function Registrar() {
                             }</option>);
                         })
                     } </select>
-                    <label htmlFor='documento'>Número de documento:</label>
-                    <input id='documento' type='number' placeholder='Número de documento'
+                    <label className='tituloFormulario' htmlFor='documento'>Número de documento:</label>
+                    <input className='cajaFormulario colorcaja4' id='documento' type='number' placeholder='Número de documento'
                         required={true}
                         value={documento}
                         onChange={
                             event => setDocumento(event.target.value)
                         }/>
-                    <label htmlFor='telefono'>Telefono:</label>
-                    <input id='telefono' type='number' placeholder='Telefono'
+                    <label className='tituloFormulario' htmlFor='telefono'>Telefono:</label>
+                    <input  className='cajaFormulario colorcaja5' id='telefono' type='number' placeholder='Telefono'
                         required={true}
                         value={telefono}
                         onChange={
                             event => setTelefono(event.target.value)
                         }/>
 
-                    <label htmlFor='direccion'>Dirección:</label>
-                    <input id='direccion' type='text' placeholder='Dirección'
+                    <label className='tituloFormulario' htmlFor='direccion'>Dirección:</label>
+                    <input  className='cajaFormulario colorcaja1' id='direccion' type='text' placeholder='Dirección'
                         value={direccion}
                         onChange={
                             event => setDireccion(event.target.value)
                         }/>
-                    <label htmlFor='correo'>Correo electronico:</label>
-                    <input id='correo' type='email' placeholder='Correo electronico'
+                    <label className='tituloFormulario' htmlFor='correo'>Correo electronico:</label>
+                    <input className='cajaFormulario colorcaja2' id='correo' type='email' placeholder='Correo electronico'
                         required={true}
                         value={correo}
                         onChange={
                             event => setCorreo(event.target.value)
                         }/>
-                    <label htmlFor='contrasena'>Contraseña:</label>
-                    <input id='contrasena' type='password' placeholder='Contraseña' autoComplete="on"
+                    <label className='tituloFormulario' htmlFor='contrasena'>Contraseña:</label>
+                    <input className='cajaFormulario colorcaja3' id='contrasena' type='password' placeholder='Contraseña' autoComplete="on"
                         required={true}
                         value={contrasena}
                         onChange={
                             event => setContrasena(event.target.value)
                         }/>
-                    <input type='submit' value='Registrar'/>
+                        <br></br>
+                    <input className='botton' type='submit' value='Registrar'/>
                 </form>
             </div>
         </Layout>

@@ -1,0 +1,26 @@
+.colorcaja3{
+    background: #9fcef0;  
+}
+.colorcaja3:focus{
+    background-color: #4ba1df;
+}
+.colorcaja4{
+    background: #f1c3e2;  
+}
+.colorcaja4:focus{
+    background-color: #ee86cb;
+}
+.colorcaja5{
+    background: #e0c390;  
+}
+.colorcaja5:focus{
+    background-color: #BB9149;
+}
+.registro{
+    text-align: center;
+    font-family: cursive;
+    font-size: 40px;
+    font-weight: bold;
+    color: #7C9914;
+    text-shadow: 6px 3px 4px #9bad58;
+}

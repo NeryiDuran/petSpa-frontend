@@ -36,24 +36,26 @@ function Ingresar() {
 
     return (<>
         <Layout>
-            <h1>Ingresar</h1>
-            <div>
-                <form onSubmit={enviar}>
-                    <label htmlFor='correo'>Correo electronico:</label>
-                    <input id='correo' type='email' placeholder='Correo electronico'
+            <h1 className='ingresar'>Ingresar</h1>
+            <div className='formularioIngresar'>
+                <form className='formulario' onSubmit={enviar}>
+                    <label className='tituloFormulario' htmlFor='correo'>Correo Electronico:</label>
+                    <input className='cajaFormulario colorcaja1' id='correo' type='email' placeholder='Correo electronico'
                         required={true}
                         value={correo}
                         onChange={
                             event => setCorreo(event.target.value)
                         }/>
-                    <label htmlFor='contrasena'>Contraseña:</label>
-                    <input id='contrasena' type='password' placeholder='Contraseña' autoComplete='on'
+                        <br></br>
+                    <label className='tituloFormulario' htmlFor='contrasena'>Contraseña:</label>
+                    <input className='cajaFormulario colorcaja2' id='contrasena' type='password' placeholder='Contraseña' autoComplete='on'
                         required={true}
                         value={contrasena}
                         onChange={
                             event => setContrasena(event.target.value)
                         }/>
-                    <input type='submit' value='Ingresar'/>
+                        <br></br>
+                    <input className='botton' type='submit' value='Ingresar'/>
                 </form>
             </div>
         </Layout>

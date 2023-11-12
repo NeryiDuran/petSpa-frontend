@@ -29,17 +29,17 @@ function TablaReserva(props) {
     }
 
     return (<>
-        <fieldset>
-            <legend>Reservas</legend>
+        <fieldset className='tablareservas'>
+            <legend className='mascotas'>Reservas</legend>
             <div>
-                <Link to="/reservar">Realizar reserva</Link>
-                <table>
+                <Link to="/reservar" className='reservasmas'>Realizar reserva</Link>
+                <table className='tablamasco'>
                     <thead>
                         <tr>
-                            <th>Servicio</th>
-                            <th>Mascota</th>
-                            <th>Fecha y hora</th>
-                            <th>Acción</th>
+                            <th className='dato'  >Servicio</th>
+                            <th className='dato' >Mascota</th>
+                            <th className='dato' >Fecha y hora</th>
+                            <th className='dato' >Acción</th>
                         </tr>
                     </thead>
                     <tbody>{
@@ -47,25 +47,25 @@ function TablaReserva(props) {
                             return (<tr key={
                                 'reserva' + reserva.id
                             }>
-                                <td key={
+                                <td className='dato' key={
                                     'reserva-servicio' + reserva.id
                                 }> {
                                     reserva.servicio
                                 }</td>
-                                <td key={
+                                <td className='dato' key={
                                     'reserva-mascota' + reserva.id
                                 }> {
                                     reserva.mascota
                                 }</td>
-                                <td key={
+                                <td className='dato' key={
                                     'reserva-fecha' + reserva.id
                                 }> {
                                     new Date(reserva.fecha_hora).toLocaleString()
                                 }</td>
-                                <th key={
+                                <th className='dato' key={
                                     'reserva-acciones' + reserva.id
                                 }>
-                                    <button key={
+                                    <button className='bottoneliminar' key={
                                             'reserva-acciones-eliminar' + reserva.id
                                         }
                                         onClick={

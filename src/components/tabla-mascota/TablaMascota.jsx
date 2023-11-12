@@ -44,17 +44,17 @@ function TablaMascota(props) {
     }
 
     return (<>
-        <fieldset>
-            <legend>Mascotas</legend>
-            <div>
-                <Link to="/agregar-mascota">Agregar mascota</Link>
-                <table>
+        <fieldset className='tablamascotas'>
+            <legend className='mascotas'>Mascotas</legend>
+            <div >
+                <Link to="/agregar-mascota" className='agregarmasco' >Agregar mascota</Link>
+                <table className='tablamasco'>
                     <thead>
                         <tr>
-                            <th>Mascota</th>
-                            <th>Raza</th>
-                            <th>Tipo</th>
-                            <th>Acción</th>
+                            <th className='dato'>Mascota</th>
+                            <th className='dato'>Raza</th>
+                            <th className='dato'>Tipo</th>
+                            <th className='dato'>Acción</th>
                         </tr>
                     </thead>
                     <tbody>{
@@ -62,25 +62,25 @@ function TablaMascota(props) {
                             return (<tr key={
                                 'mascota' + mascota.id
                             }>
-                                <td key={
+                                <td className='dato' key={
                                     'mascota-nombre' + mascota.id
                                 }> {
                                     mascota.nombre
                                 }</td>
-                                <td key={
+                                <td className='dato' key={
                                     'mascota-raza' + mascota.id
                                 }> {
                                     mascota.raza
                                 }</td>
-                                <td key={
+                                <td className='dato' key={
                                     'mascota-tipo' + mascota.id
                                 }> {
                                     tiposMascota[mascota.tipo_mascota_id]
                                 }</td>
-                                <th key={
+                                <th className='dato' key={
                                     'mascota-acciones' + mascota.id
                                 }>
-                                    <button key={
+                                    <button className='bottoneliminar' key={
                                             'mascota-acciones-eliminar' + mascota.id
                                         }
                                         onClick={

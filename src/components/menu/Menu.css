@@ -1,0 +1,86 @@
+.app-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    list-style: none;
+    outline: none;
+    float: none;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+.menu1{
+    display: flex;
+    height: 50px;
+    padding: 30px 60px 0;
+    background: #9dc899;
+    text-align: center;
+    color: #ffffff;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-decoration: none;
+    flex-direction: row;
+    margin: 50px 20px 20px 20px;
+  }
+
+  .menu1:hover{
+    background-color: #7c9914;
+  }
+  
+  .menu2{
+    display: flex;
+    height: 50px;
+    padding: 30px 60px 0;
+    background: #57a7e0;
+    text-align: center;
+    color: #ffffff;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-decoration: none;
+    flex-direction: row;
+    margin: 50px 20px 20px 20px;
+  }
+  
+  .menu2:hover{
+    background-color: #38707e;
+  }
+
+  .menu3{
+    display: flex;
+    height: 50px;
+    padding: 30px 60px 0;
+    background: #da8181;
+    text-align: center;
+    color: #ffffff;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-decoration: none;
+    flex-direction: row;
+    margin: 50px 20px 20px 20px;
+  }
+  .menu3:hover{
+    background-color: #a35e5e;
+  }
+  .menu4{
+    display: flex;
+    height: 50px;
+    padding: 30px 60px 0px;
+    background: #e2b05a;
+    text-align: center;
+    color: #ffffff;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-decoration: none;
+    flex-direction: row;
+    margin: 50px 20px 20px 20px;
+  }
+  
+  .menu4:hover{
+    background-color: #bb9149;
+  }
+  
+  .logo{
+    display: flex;
+    width: 350px;
+    height: 200px;
+    
+  }

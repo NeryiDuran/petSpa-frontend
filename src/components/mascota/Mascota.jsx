@@ -51,25 +51,25 @@ function Mascota() {
 
     return (<>
         <Layout>
-            <h1>Crear mascota</h1>
-            <div>
+            <h1 className='titulomascota'>Crear mascota</h1>
+            <div className='reserva'>
                 <form onSubmit={crear}>
-                    <label htmlFor='nombre'>Nombre:</label>
-                    <input id='nombre' type='text' placeholder='Nombre'
+                    <label className='datosPerfil' htmlFor='nombre'>Nombre:</label>
+                    <input className='cajaPerfil colorcaja1' id='nombre' type='text' placeholder='Nombre'
                         required={true}
                         value={nombre}
                         onChange={
                             event => setNombre(event.target.value)
                         }/>
-                    <label htmlFor='raza'>Raza:</label>
-                    <input id='raza' type='text' placeholder='Raza'
+                    <label className='datosPerfil' htmlFor='raza'>Raza:</label>
+                    <input className='cajaPerfil colorcaja2' id='raza' type='text' placeholder='Raza'
                         required={true}
                         value={raza}
                         onChange={
                             event => setRaza(event.target.value)
                         }/>
-                    <label htmlFor='tipo-mascota'>Tipo de mascota:</label>
-                    <select id='tipo-mascota'
+                    <label className='datosPerfil' htmlFor='tipo-mascota'>Tipo de mascota:</label>
+                    <select className='cajaPerfil colorcaja3' id='tipo-mascota'
                         required={true}
                         value={tipoMascota}
                         onChange={
@@ -88,7 +88,7 @@ function Mascota() {
                             }</option>);
                         })
                     } </select>
-                    <input type='submit' value='Crear'/>
+                    <input className='botonactualizar' type='submit' value='Crear'/>
                 </form>
             </div>
         </Layout>
